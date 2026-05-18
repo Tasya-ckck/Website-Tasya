@@ -1,0 +1,1186 @@
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SMK Digital Nusantara</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#efe5da;
+    overflow-x:hidden;
+}
+
+/* ================= LOGIN ================= */
+
+.login-page{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#d6c2ad,#efe5da,#cbb29a);
+    padding:20px;
+}
+
+.login-box{
+    width:950px;
+    min-height:550px;
+    background:#f8f2eb;
+    border-radius:35px;
+    overflow:hidden;
+    display:flex;
+    box-shadow:0 10px 40px rgba(90,70,50,0.15);
+}
+
+.login-left{
+    width:50%;
+    background:linear-gradient(135deg,#7b6755,#b89c80,#d6c2ad);
+    color:white;
+    padding:60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.login-left h1{
+    font-size:58px;
+    line-height:70px;
+    font-weight:800;
+    margin-bottom:20px;
+    text-shadow:0 0 15px rgba(255,255,255,0.25);
+}
+
+.login-left p{
+    font-size:18px;
+    line-height:35px;
+}
+
+.login-right{
+    width:50%;
+    padding:60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.login-title h2{
+    font-size:40px;
+    color:#6f5542;
+}
+
+.login-title p{
+    color:#8d7460;
+    margin:10px 0 30px;
+}
+
+.role{
+    display:flex;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.role button{
+    flex:1;
+    padding:14px;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+    background:#eadccf;
+    color:#6f5542;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.role button.active{
+    background:#8d7460;
+    color:white;
+}
+
+.input-box{
+    margin-bottom:20px;
+}
+
+.input-box input{
+    width:100%;
+    padding:16px;
+    border:none;
+    outline:none;
+    border-radius:15px;
+    background:#f3ebe3;
+    font-size:15px;
+}
+
+.login-btn{
+    width:100%;
+    padding:16px;
+    border:none;
+    border-radius:16px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    background:linear-gradient(135deg,#d8c3af,#f3ebe3,#c9af95);
+    color:#6f5542;
+    transition:0.3s;
+}
+
+.login-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 0 18px rgba(255,255,255,0.7);
+}
+
+/* ================= WELCOME ================= */
+
+.welcome-page{
+    width:100%;
+    min-height:100vh;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#cab29a,#efe5da,#d8c3af);
+}
+
+.welcome-box{
+    width:500px;
+    background:#f8f2eb;
+    padding:60px;
+    border-radius:35px;
+    text-align:center;
+    box-shadow:0 10px 35px rgba(90,70,50,0.15);
+}
+
+.welcome-box h1{
+    font-size:50px;
+    color:#6f5542;
+    margin-bottom:20px;
+}
+
+.welcome-box p{
+    color:#8d7460;
+    line-height:35px;
+    margin-bottom:30px;
+}
+
+.welcome-box button{
+    padding:15px 35px;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+    font-weight:600;
+    background:linear-gradient(135deg,#d8c3af,#f3ebe3,#c9af95);
+    color:#6f5542;
+}
+
+/* ================= WEBSITE ================= */
+
+.website{
+    display:none;
+}
+
+/* ================= NAVBAR ================= */
+
+header{
+    width:100%;
+    padding:25px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:fixed;
+    top:0;
+    z-index:999;
+    background:rgba(120,100,85,0.35);
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    color:white;
+}
+
+.logo h1{
+    font-size:50px;
+    font-family:'Playfair Display',serif;
+}
+
+.logo p{
+    letter-spacing:8px;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+nav button{
+    padding:14px 28px;
+    border:none;
+    border-radius:18px;
+    background:transparent;
+    color:white;
+    cursor:pointer;
+    font-size:18px;
+    transition:0.3s;
+}
+
+nav button:hover,
+nav button.active{
+    background:#f4e8da;
+    color:#7b6755;
+    box-shadow:0 0 20px rgba(255,255,255,0.5);
+}
+
+/* ================= DROPDOWN ================= */
+
+.dropdown{
+    position:relative;
+}
+
+.dropdown-content{
+    position:absolute;
+    top:60px;
+    left:0;
+    width:260px;
+    background:#f8f2eb;
+    border-radius:20px;
+    padding:15px;
+    display:none;
+    box-shadow:0 10px 25px rgba(90,70,50,0.15);
+}
+
+.dropdown-content button{
+    width:100%;
+    padding:15px;
+    border:none;
+    background:transparent;
+    border-radius:12px;
+    text-align:left;
+    cursor:pointer;
+    color:#6f5542;
+    font-size:17px;
+    transition:0.3s;
+}
+
+.dropdown-content button:hover{
+    background:#eadccf;
+}
+
+.dropdown:hover .dropdown-content{
+    display:block;
+}
+
+/* ================= SECTION ================= */
+
+.section{
+    display:none;
+    padding:140px 5%;
+    min-height:100vh;
+}
+
+.section.active{
+    display:block;
+}
+
+/* ================= HOME ================= */
+
+.hero{
+    width:100%;
+    height:85vh;
+    border-radius:40px;
+    overflow:hidden;
+    position:relative;
+    box-shadow:0 15px 40px rgba(90,70,50,0.2);
+}
+
+.hero-bg{
+    position:absolute;
+    width:100%;
+    height:120%;
+    background-image:url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1600&auto=format&fit=crop');
+    background-size:cover;
+    background-position:center;
+    animation:gerakFoto 8s ease-in-out infinite alternate;
+}
+
+@keyframes gerakFoto{
+0%{
+    transform:translateY(0);
+}
+100%{
+    transform:translateY(-60px);
+}
+}
+
+.hero-overlay{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:linear-gradient(to right,rgba(15,12,10,0.7),rgba(15,12,10,0.25));
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    height:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:80px;
+}
+
+.hero-left{
+    width:50%;
+}
+
+.small-text{
+    color:#eadccf;
+    letter-spacing:5px;
+    margin-bottom:20px;
+}
+
+.line{
+    width:120px;
+    height:2px;
+    background:#d8b48c;
+    margin-bottom:25px;
+}
+
+.hero-left h1{
+    font-size:115px;
+    line-height:105px;
+    color:#f4e8da;
+    font-family:'Playfair Display',serif;
+}
+
+.hero-left h2{
+    font-size:100px;
+    color:#d9c2aa;
+    font-family:'Great Vibes',cursive;
+    font-weight:400;
+}
+
+.hero-right{
+    width:35%;
+}
+
+.hero-right p{
+    color:#f5eee7;
+    font-size:23px;
+    line-height:45px;
+    font-weight:300;
+}
+
+.next-btn{
+    margin-top:40px;
+    padding:18px 45px;
+    border:none;
+    border-radius:22px;
+    cursor:pointer;
+    font-size:22px;
+    font-weight:600;
+    background:#f4e8da;
+    color:#7b6755;
+}
+
+/* ================= CONTENT ================= */
+
+.section-title{
+    font-size:55px;
+    color:#6f5542;
+    margin:50px 0 20px;
+    font-family:'Playfair Display',serif;
+}
+
+.section-text{
+    line-height:38px;
+    color:#7c6554;
+    margin-bottom:40px;
+    font-size:18px;
+}
+
+.card-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#f8f2eb;
+    padding:25px;
+    border-radius:28px;
+    transition:0.3s;
+    box-shadow:0 8px 25px rgba(90,70,50,0.08);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    background:linear-gradient(135deg,#fff,#f2e4d4,#e7d2bc);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:20px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    color:#7b6755;
+    margin-bottom:15px;
+}
+
+.card p{
+    line-height:30px;
+    color:#866f5c;
+}
+
+/* ================= PROFILE TAB ================= */
+
+.profile-tab{
+    display:none;
+}
+
+.profile-tab.active-tab{
+    display:block;
+}
+
+/* ================= CONTACT ================= */
+
+.contact-box{
+    background:#f8f2eb;
+    padding:35px;
+    border-radius:30px;
+    line-height:40px;
+    color:#6f5542;
+    font-size:18px;
+}
+
+/* ================= BUTTON ================= */
+
+.nav-buttons{
+    display:flex;
+    justify-content:space-between;
+    margin-top:50px;
+}
+
+.nav-buttons button{
+    padding:15px 35px;
+    border:none;
+    border-radius:18px;
+    cursor:pointer;
+    background:#d9c2aa;
+    color:#6f5542;
+    font-size:17px;
+    font-weight:600;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+    background:#7b6755;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+.login-box{
+    flex-direction:column;
+}
+
+.login-left,
+.login-right{
+    width:100%;
+}
+
+header{
+    flex-direction:column;
+    gap:20px;
+}
+
+nav{
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.hero-content{
+    flex-direction:column;
+    justify-content:center;
+    text-align:center;
+    gap:40px;
+}
+
+.hero-left,
+.hero-right{
+    width:100%;
+}
+
+.hero-left h1{
+    font-size:70px;
+    line-height:75px;
+}
+
+.hero-left h2{
+    font-size:65px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+
+<div class="login-page" id="loginPage">
+
+<div class="login-box">
+
+<div class="login-left">
+
+<h1>SMK DIGITAL NUSANTARA</h1>
+
+<p>
+Sekolah modern berbasis teknologi dan kreativitas.
+</p>
+
+</div>
+
+<div class="login-right">
+
+<div class="login-title">
+<h2>Login</h2>
+<p>Masuk sebagai Admin atau User</p>
+</div>
+
+<div class="role">
+
+<button class="active" id="adminBtn">
+Admin
+</button>
+
+<button id="userBtn">
+User
+</button>
+
+</div>
+
+<form id="loginForm">
+
+<div class="input-box">
+<input type="text" placeholder="Masukkan Username" required>
+</div>
+
+<div class="input-box">
+<input type="password" id="password" placeholder="Masukkan Password" required>
+</div>
+
+<button class="login-btn">
+Masuk
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- WELCOME -->
+
+<div class="welcome-page" id="welcomePage">
+
+<div class="welcome-box">
+
+<h1>Selamat Datang</h1>
+
+<p>
+Di Website Resmi <br>
+SMK Digital Nusantara
+</p>
+
+<button onclick="masukWebsite()">
+Masuk Ke Website
+</button>
+
+</div>
+
+</div>
+
+<!-- WEBSITE -->
+
+<div class="website" id="websitePage">
+
+<header>
+
+<div class="logo">
+
+<h1>SMK DIGITAL</h1>
+<p>NUSANTARA</p>
+
+</div>
+
+<nav>
+
+<button class="menu active"
+onclick="showSection('home',this)">
+Home
+</button>
+
+<div class="dropdown">
+
+<button class="menu"
+onclick="showSection('profil',this)">
+Profil ▼
+</button>
+
+<div class="dropdown-content">
+
+<button onclick="showProfileTab('profilSekolah')">
+Profil Sekolah
+</button>
+
+<button onclick="showProfileTab('visiMisi')">
+Visi & Misi
+</button>
+
+<button onclick="showProfileTab('akreditasi')">
+Akreditasi
+</button>
+
+<button onclick="showProfileTab('fasilitas')">
+Fasilitas
+</button>
+
+<button onclick="showProfileTab('kebutuhan')">
+Kebutuhan Sekolah
+</button>
+
+</div>
+
+</div>
+
+<button class="menu"
+onclick="showSection('jurusan',this)">
+Jurusan
+</button>
+
+<button class="menu"
+onclick="showSection('kontak',this)">
+Kontak
+</button>
+
+</nav>
+
+</header>
+
+<!-- HOME -->
+
+<section class="section active" id="home">
+
+<div class="hero">
+
+<div class="hero-bg"></div>
+
+<div class="hero-overlay"></div>
+
+<div class="hero-content">
+
+<div class="hero-left">
+
+<p class="small-text">
+SMK DIGITAL NUSANTARA
+</p>
+
+<div class="line"></div>
+
+<h1>
+Sekolah <br>
+Digital
+</h1>
+
+<h2>
+Modern
+</h2>
+
+</div>
+
+<div class="hero-right">
+
+<p>
+SMK Digital Nusantara merupakan sekolah modern 
+berbasis teknologi dan kreativitas untuk 
+menciptakan generasi unggul di era digital.
+</p>
+
+<button class="next-btn"
+onclick="showSection('profil',document.querySelectorAll('.menu')[1])">
+Next →
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PROFIL -->
+
+<section class="section" id="profil">
+
+<!-- PROFIL SEKOLAH -->
+
+<div class="profile-tab active-tab" id="profilSekolah">
+
+<h2 class="section-title">
+Profil Sekolah
+</h2>
+
+<p class="section-text">
+SMK Digital Nusantara merupakan sekolah modern
+berbasis teknologi dengan fasilitas lengkap.
+</p>
+
+<div class="card-container">
+
+<div class="card">
+
+<img src="digital.jpg">
+
+<h3>Sekolah Modern</h3>
+
+<p>
+Lingkungan belajar nyaman dengan konsep digital modern.
+</p>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop">
+
+<h3>Pembelajaran Digital</h3>
+
+<p>
+Menggunakan teknologi untuk mendukung siswa.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- VISI MISI -->
+
+<div class="profile-tab" id="visiMisi">
+
+<h2 class="section-title">
+Visi & Misi
+</h2>
+
+<div class="card-container">
+
+<div class="card">
+
+<h3>Visi</h3>
+
+<p>
+Menjadi sekolah unggulan berbasis teknologi.
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>Misi</h3>
+
+<p>
+Menciptakan siswa inovatif dan modern.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- AKREDITASI -->
+
+<div class="profile-tab" id="akreditasi">
+
+<h2 class="section-title">
+Akreditasi
+</h2>
+
+<div class="card-container">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop">
+
+<h3>Akreditasi A</h3>
+
+<p>
+Sekolah memiliki standar pendidikan modern.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FASILITAS -->
+
+<div class="profile-tab" id="fasilitas">
+
+<h2 class="section-title">
+Fasilitas Sekolah
+</h2>
+
+<div class="card-container">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop">
+
+<h3>Lab Komputer</h3>
+
+<p>
+Ruang lab lengkap untuk praktek coding.
+</p>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?q=80&w=1200&auto=format&fit=crop">
+
+<h3>Alat Praktek</h3>
+
+<p>
+Alat praktek modern untuk siswa.
+</p>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1200&auto=format&fit=crop">
+
+<h3>Perpustakaan</h3>
+
+<p>
+Perpustakaan digital dan buku lengkap.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- KEBUTUHAN -->
+
+<div class="profile-tab" id="kebutuhan">
+
+<h2 class="section-title">
+Kebutuhan yang Ditanggung Sekolah
+</h2>
+
+<div class="card-container">
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1513258496099-48168024aec0?q=80&w=1200&auto=format&fit=crop">
+
+<h3>WiFi Sekolah</h3>
+
+<p>
+Akses internet sekolah untuk siswa.
+</p>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1200&auto=format&fit=crop">
+
+<h3>Buku Pembelajaran</h3>
+
+<p>
+Sekolah menyediakan buku dan materi belajar.
+</p>
+
+</div>
+
+<div class="card">
+
+<img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=1200&auto=format&fit=crop">
+
+<h3>Kegiatan Praktikum</h3>
+
+<p>
+Fasilitas praktek dan workshop siswa.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="nav-buttons">
+
+<button onclick="showSection('home',document.querySelectorAll('.menu')[0])">
+← Back
+</button>
+
+<button onclick="showSection('jurusan',document.querySelectorAll('.menu')[2])">
+Next →
+</button>
+
+</div>
+
+</section>
+
+<!-- JURUSAN -->
+
+<section class="section" id="jurusan">
+
+<h2 class="section-title">
+Jurusan Sekolah
+</h2>
+
+<div class="card-container">
+
+<div class="card">
+<h3>TKJ</h3>
+<p>Belajar jaringan komputer dan mikrotik.</p>
+</div>
+
+<div class="card">
+<h3>RPL</h3>
+<p>Belajar coding website dan aplikasi.</p>
+</div>
+
+<div class="card">
+<h3>DKV</h3>
+<p>Belajar desain grafis dan multimedia.</p>
+</div>
+
+<div class="card">
+<h3>Cyber Security</h3>
+<p>Belajar keamanan data digital.</p>
+</div>
+
+</div>
+
+<div class="nav-buttons">
+
+<button onclick="showSection('profil',document.querySelectorAll('.menu')[1])">
+← Back
+</button>
+
+<button onclick="showSection('kontak',document.querySelectorAll('.menu')[2])">
+Next →
+</button>
+
+</div>
+
+</section>
+
+<!-- KONTAK -->
+
+<section class="section" id="kontak">
+
+<h2 class="section-title">
+Kontak Sekolah
+</h2>
+
+<div class="contact-box">
+
+📍 Jl. Pendidikan No.10 <br><br>
+
+📞 0812-3456-7890 <br><br>
+
+✉ smkdigital@gmail.com
+
+</div>
+
+<div class="nav-buttons">
+
+<button onclick="showSection('jurusan',document.querySelectorAll('.menu')[1])">
+← Back
+</button>
+
+<div></div>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 SMK Digital Nusantara
+</footer>
+
+</div>
+
+<script>
+
+let role = "admin";
+
+const adminBtn =
+document.getElementById("adminBtn");
+
+const userBtn =
+document.getElementById("userBtn");
+
+adminBtn.onclick = () => {
+
+role = "admin";
+
+adminBtn.classList.add("active");
+
+userBtn.classList.remove("active");
+
+}
+
+userBtn.onclick = () => {
+
+role = "user";
+
+userBtn.classList.add("active");
+
+adminBtn.classList.remove("active");
+
+}
+
+document
+.getElementById("loginForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const password =
+document.getElementById("password").value;
+
+if(role === "admin"){
+
+if(password === "admin123"){
+
+document.getElementById("loginPage")
+.style.display="none";
+
+document.getElementById("welcomePage")
+.style.display="flex";
+
+}else{
+
+alert("Password Admin Salah!");
+
+}
+
+}else{
+
+if(password === "user123"){
+
+document.getElementById("loginPage")
+.style.display="none";
+
+document.getElementById("welcomePage")
+.style.display="flex";
+
+}else{
+
+alert("Password User Salah!");
+
+}
+
+}
+
+});
+
+function masukWebsite(){
+
+document.getElementById("welcomePage")
+.style.display="none";
+
+document.getElementById("websitePage")
+.style.display="block";
+
+}
+
+function showSection(id,element){
+
+document.querySelectorAll(".section")
+.forEach(section=>{
+
+section.classList.remove("active");
+
+});
+
+document.getElementById(id)
+.classList.add("active");
+
+document.querySelectorAll(".menu")
+.forEach(btn=>{
+
+btn.classList.remove("active");
+
+});
+
+if(element){
+element.classList.add("active");
+}
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+function showProfileTab(id){
+
+document.querySelectorAll(".profile-tab")
+.forEach(tab=>{
+
+tab.classList.remove("active-tab");
+
+});
+
+document.getElementById(id)
+.classList.add("active-tab");
+
+}
+
+</script>
+
+</body>
+</html>
+```
